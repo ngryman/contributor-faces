@@ -1,0 +1,42 @@
+{
+  "name": "contributor-avatars",
+  "version": "0.0.0",
+  "description": "Put your contributors avatar in your readme.",
+  "author": "Nicolas Gryman <ngryman@gmail.com> (http://ngryman.sh/)",
+  "license": "MIT",
+  "repository": "ngryman/contributor-avatars",
+  "main": "index.js",
+  "bin": "cli.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "lint": "eslint {,lib/,test/}*.js",
+    "unit": "nyc ava",
+    "test": "npm run lint -s && npm run unit -s",
+    "dev": "npm run unit -- --watch",
+    "coverage": "nyc report --reporter=text-lcov | codecov",
+    "see-coverage": "nyc report --reporter=html && open coverage/index.html",
+    "check-coverage": "nyc check-coverage --lines 95 --functions 95 --branches 95"
+  },
+  "precommit": [
+    "test",
+    "check-coverage"
+  ],
+  "keywords": [],
+  "dependencies": {
+    "gh-got": "^4.0.0",
+    "meow": "^3.7.0",
+    "readme-filename": "^0.3.0",
+    "replace-in-file": "^1.1.1"
+  },
+  "devDependencies": {
+    "ava": "^0.15.1",
+    "babel-eslint": "^6.1.2",
+    "codecov.io": "^0.1.6",
+    "eslint": "^2.13.1",
+    "eslint-config-ngryman": "^1.1.0",
+    "nyc": "^6.4.4",
+    "pre-commit": "^1.1.3"
+  }
+}

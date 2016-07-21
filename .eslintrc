@@ -1,0 +1,7 @@
+{
+  "extends": "ngryman",
+  "parser": "babel-eslint",
+  "rules": {
+    "keyword-spacing": [2, { "before": false, "after": true, "overrides": { "return": { "before": true }, "from": { "before": true }, "throw": { "before": true }}}]
+  }
+}
