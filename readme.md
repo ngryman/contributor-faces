@@ -50,33 +50,32 @@ To keep your contributor list up-to-date, your have to specify a placeholder for
 `contributor-avatars`:
 
 ```markdown
-[//]: # "contributors
+[//]: contributor-avatars
 ```
 
 Then whenever you update your `readme`, the placeholder will get updated like this:
 
 ```markdown
-[//]: # "contributors
+[//]: contributor-avatars
 <a href="https://github.com/ngryman"><img src="https://avatars.githubusercontent.com/u/892048?v=3" title="ngryman" width="80" height="80"></a>
-[//]: # "contributors
+[//]: contributor-avatars
 ```
 
 ## FAQ
 
-### Why `[//]: # "contributors`?
+### Why `[//]: contributor-avatars`?
 
 `markdown` does not officially support non visible text or comments. A known workaround is to use a
 `link label` to do so. `contributor-avatars` uses a specific `link label` to process your `readme`:
 
   - `//` is only decorative and means it's a comment
-  - `#` is to be gentle with `markdown` parsers as `#` is a valid link
-  - `contributors` serves as the placeholder identifier.
+  - `contributor-avatars` serves as the placeholder identifier.
 
 ## Contributors
 
-[//]: # "contributors
+[//]: contributor-avatars
 <a href="https://github.com/ngryman"><img src="https://avatars.githubusercontent.com/u/892048?v=3" title="ngryman" width="80" height="80"></a>
-[//]: # "contributors
+[//]: contributor-avatars
 
 
 ## License

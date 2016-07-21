@@ -36,8 +36,8 @@ function update(baton) {
     .then(filename => new Promise((resolve, reject) => {
       replace({
         files: path.resolve(baton.dir, filename),
-        replace: /\[\/\/\]: # "contributors(?:(?:\n.*)+\[\/\/\]: # "contributors)?/,
-        with: `[//]: # "contributors\n${baton.html}[//]: # "contributors`
+        replace: /\[\/\/\]: contributor-avatars(?:(?:\n.*)+\[\/\/\]: contributor-avatars)?/,
+        with: `[//]: contributor-avatars\n${baton.html}[//]: contributor-avatars`
       }, err => {
         /* istanbul ignore if  */
         if (err) return reject(err)
