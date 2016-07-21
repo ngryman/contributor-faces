@@ -17,7 +17,8 @@
     "dev": "npm run unit -- --watch",
     "coverage": "nyc report --reporter=text-lcov | codecov",
     "see-coverage": "nyc report --reporter=html && open coverage/index.html",
-    "check-coverage": "nyc check-coverage --lines 95 --functions 95 --branches 95"
+    "check-coverage": "nyc check-coverage --lines 95 --functions 95 --branches 95",
+    "prepublish": "npm version ${1:minor} && git push && git push --tags"
   },
   "precommit": [
     "test",
