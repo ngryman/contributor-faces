@@ -1,1 +1,1 @@
-[//]: contributor-avatars
+[//]: contributor-faces

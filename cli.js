@@ -6,7 +6,7 @@ const contributors = require('./')
 
 const cli = meow(`
   Usage
-    $ contributor-avatars [<directory>]
+    $ contributor-faces [<directory>]
 `)
 
 contributors.update(cli.input[0])

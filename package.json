@@ -1,10 +1,10 @@
 {
-  "name": "contributor-avatars",
+  "name": "contributor-faces",
   "version": "0.1.1",
-  "description": "Put your contributors avatar in your readme.",
+  "description": "Put your contributors faces in your readme.",
   "author": "Nicolas Gryman <ngryman@gmail.com> (http://ngryman.sh/)",
   "license": "MIT",
-  "repository": "ngryman/contributor-avatars",
+  "repository": "ngryman/contributor-faces",
   "main": "index.js",
   "bin": "cli.js",
   "files": [
