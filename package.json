@@ -28,6 +28,7 @@
   "dependencies": {
     "gh-got": "^4.0.0",
     "meow": "^3.7.0",
+    "micromatch": "^2.3.11",
     "readme-filename": "^0.3.0",
     "replace-in-file": "^1.1.1"
   },

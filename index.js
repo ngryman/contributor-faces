@@ -4,6 +4,7 @@ const path = require('path')
 const gh = require('gh-got')
 const readmeFilename = require('readme-filename')
 const replace = require('replace-in-file')
+const mm = require('micromatch')
 
 function getRepo(baton) {
   const pkg = require(path.resolve(baton.dir, 'package.json'))
@@ -17,6 +18,13 @@ function fetch(baton) {
     baton.contributors = res.body
     return baton
   })
+}
+
+function filter(baton) {
+  if (!baton.exclude) return baton
+
+  const isExcluded = mm.matcher(baton.exclude)
+  return baton.contributors.filter(contrib => !isExcluded(contrib.login))
 }
 
 function html(baton) {
@@ -53,20 +61,23 @@ function end(prop) {
 
 /* -------------------------------------------------------------------------- */
 
-function core(dir) {
-  return Promise.resolve({ dir: dir || '.' })
+function core(dir, opts) {
+  opts = opts || {}
+  opts.dir = dir || '.'
+  return Promise.resolve(opts)
     .then(getRepo)
     .then(fetch)
+    .then(filter)
 }
 
-module.exports = function(dir) {
-  return core(dir).then(end('contributors'))
+module.exports = function(dir, opts) {
+  return core(dir, opts).then(end('contributors'))
 }
 
-module.exports.html = function(dir) {
-  return core(dir).then(html).then(end('html'))
+module.exports.html = function(dir, opts) {
+  return core(dir, opts).then(html).then(end('html'))
 }
 
-module.exports.update = function(dir) {
-  return core(dir).then(html).then(update).then(end('filename'))
+module.exports.update = function(dir, opts) {
+  return core(dir, opts).then(html).then(update).then(end('filename'))
 }

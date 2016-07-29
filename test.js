@@ -49,6 +49,11 @@ test('update a readme with an existing contributors list', async t => {
   fs.writeFileSync(filename, oldReadme)
 })
 
+test('exclude some contributors', async t => {
+  const contribs = await contributors('.', { exclude: 'baxter*' })
+  t.is(contribs, undefined)
+})
+
 test('throw an error if readme is not present', async t => {
   const filename = path.join('fixtures', 'no-readme', 'readme.md')
 
