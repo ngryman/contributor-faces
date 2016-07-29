@@ -50,8 +50,9 @@ test('update a readme with an existing contributors list', async t => {
 })
 
 test('exclude some contributors', async t => {
-  const contribs = await contributors('.', { exclude: 'baxter*' })
-  t.is(contribs, undefined)
+  const contribs = await contributors('fixtures', { exclude: 'baxter*' })
+  t.true(Array.isArray(contribs))
+  t.is(contribs.length, 0)
 })
 
 test('throw an error if readme is not present', async t => {
