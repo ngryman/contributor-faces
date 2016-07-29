@@ -24,7 +24,8 @@ function filter(baton) {
   if (!baton.exclude) return baton
 
   const isExcluded = mm.matcher(baton.exclude)
-  return baton.contributors.filter(contrib => !isExcluded(contrib.login))
+  baton.contributors = baton.contributors.filter(contrib => !isExcluded(contrib.login))
+  return baton
 }
 
 function html(baton) {
