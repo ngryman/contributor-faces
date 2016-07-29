@@ -36,6 +36,9 @@ contributors.html().then(...)
 
 // update contributors list in the readme
 contributors.update().then(...)
+
+// exclude some contributors
+contributors('.', { exclude: '*-bot' }).then(...)
 ```
 
 ### CLI
