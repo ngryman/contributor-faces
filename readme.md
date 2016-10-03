@@ -24,17 +24,15 @@ npm install --save contributor-faces
 ### API
 
 ```javascript
-const contributors = require('contributor-faces')
-
-// in the current project...
+import contributors from 'contributor-faces'
 
 // get an array of contributors
 contributors().then(...)
 
 // get contributors list as html
-contributors.html().then(...)
+contributors.render().then(...)
 
-// update contributors list in the readme
+// update contributors list in readme
 contributors.update().then(...)
 
 // exclude some contributors

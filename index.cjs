@@ -1,8 +1,12 @@
-import path from 'path'
-import gh from 'gh-got'
-import readmeFilename from 'readme-filename'
-import replace from 'replace-in-file'
-import mm from 'micromatch'
+'use strict';
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var path = _interopDefault(require('path'));
+var gh = _interopDefault(require('gh-got'));
+var readmeFilename = _interopDefault(require('readme-filename'));
+var replace = _interopDefault(require('replace-in-file'));
+var mm = _interopDefault(require('micromatch'));
 
 function getRepo(baton) {
   const pkg = require(path.resolve(baton.dir, 'package.json'))
@@ -81,4 +85,4 @@ contributors.update = function(dir, opts) {
   return core(dir, opts).then(html).then(update).then(end('filename'))
 }
 
-export default contributors
+module.exports = contributors;

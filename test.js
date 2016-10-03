@@ -3,7 +3,7 @@
 import test from 'ava'
 import fs from 'fs'
 import path from 'path'
-import contributors from './'
+import contributors from './index'
 
 test('list contributors', async t => {
   const contribs = await contributors('fixtures')
