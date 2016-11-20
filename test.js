@@ -30,7 +30,8 @@ test('update a virgin readme', async t => {
   await contributors.update(path.dirname(filename))
 
   const readme = fs.readFileSync(filename, 'utf8')
-  const expected = fs.readFileSync(filename.replace('.md', '-expected.md'), 'utf8')
+  const expected = fs.readFileSync(
+    filename.replace('.md', '-expected.md'), 'utf8')
   t.is(readme, expected)
 
   fs.writeFileSync(filename, oldReadme)
@@ -43,7 +44,8 @@ test('update a readme with an existing contributors list', async t => {
   await contributors.update(path.dirname(filename))
 
   const readme = fs.readFileSync(filename, 'utf8')
-  const expected = fs.readFileSync(filename.replace('.md', '-expected.md'), 'utf8')
+  const expected = fs.readFileSync(
+    filename.replace('.md', '-expected.md'), 'utf8')
   t.is(readme, expected)
 
   fs.writeFileSync(filename, oldReadme)

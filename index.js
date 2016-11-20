@@ -22,16 +22,19 @@ function filter(baton) {
   if (!baton.exclude) return baton
 
   const isExcluded = mm.matcher(baton.exclude)
-  baton.contributors = baton.contributors.filter(contrib => !isExcluded(contrib.login))
+  baton.contributors = baton.contributors.filter(
+    contrib => !isExcluded(contrib.login))
   return baton
 }
 
 function html(baton) {
   baton.html = baton.contributors.reduce((html, contributor) => {
+    /* eslint-disable */
     const line = `
       <a href="${contributor.html_url}">
         <img src="${contributor.avatar_url}" title="${contributor.login}" width="80" height="80">
       </a>`
+    /* eslint-enable */
     html += line.replace(/\n/gm, '').replace(/\s{2,}/g, '') + '\n'
     return html
   }, '')
@@ -43,6 +46,7 @@ function update(baton) {
     .then(filename => new Promise((resolve, reject) => {
       replace({
         files: path.resolve(baton.dir, filename),
+        // eslint-disable-next-line
         replace: /\[\/\/\]: contributor-faces(?:(?:\n.*)+\[\/\/\]: contributor-faces)?/,
         with: `[//]: contributor-faces\n${baton.html}[//]: contributor-faces`
       }, err => {
