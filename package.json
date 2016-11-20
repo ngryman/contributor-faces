@@ -67,7 +67,7 @@
     "replace-in-file": "^2.0.1"
   },
   "devDependencies": {
-    "meta-dev": "^0.3.3",
+    "meta-dev": "^0.3.5",
     "pre-commit": "^1.1.3"
   }
 }
