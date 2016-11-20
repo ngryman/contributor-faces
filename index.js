@@ -67,7 +67,7 @@ function core(dir, opts) {
     .then(filter)
 }
 
-/* -------------------------------------------------------------------------- */
+/* ────────────────────────────────────────────────────────────────────────── */
 
 function contributors(dir, opts) {
   return core(dir, opts).then(end('contributors'))
