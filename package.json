@@ -48,16 +48,25 @@
   },
   "babel": {
     "env": {
-      "development": {
-        "plugins": [
-          "transform-es2015-modules-commonjs"
+      "test": {
+        "presets": [
+          "node5"
         ],
-        "sourceMaps": "inline"
+        "plugins": [
+          "istanbul"
+        ]
       }
     }
   },
   "eslintConfig": {
     "extends": "ngryman"
+  },
+  "nyc": {
+    "require": [
+      "babel-register"
+    ],
+    "sourceMap": false,
+    "instrument": false
   },
   "dependencies": {
     "gh-got": "^5.0.0",
@@ -67,7 +76,7 @@
     "replace-in-file": "^2.0.1"
   },
   "devDependencies": {
-    "meta-dev": "^0.3.6",
+    "meta-dev": "^0.4.0",
     "pre-commit": "^1.1.3"
   }
 }
