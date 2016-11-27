@@ -10,6 +10,9 @@
   "module": "index.js",
   "jsnext:main": "index.js",
   "bin": "cli.js",
+  "engines": {
+    "node": ">=5"
+  },
   "files": [
     "cli.js",
     "index.js",
