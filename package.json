@@ -76,7 +76,7 @@
     "meow": "^3.7.0",
     "micromatch": "^2.3.11",
     "readme-filename": "^1.0.0",
-    "replace-in-file": "^2.0.1"
+    "replace-in-file": "^2.4.0"
   },
   "devDependencies": {
     "meta-dev": "^0.4.0",
