@@ -1,5 +1,7 @@
 # contributor-faces
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ngryman/contributor-faces.svg)](https://greenkeeper.io/)
+
 > Put your contributors faces in your readme.
 
 [![travis][travis-image]][travis-url] [![codecov][codecov-image]][codecov-url]
