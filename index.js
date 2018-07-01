@@ -48,7 +48,7 @@ function update(baton) {
         files: path.resolve(baton.dir, filename),
         // eslint-disable-next-line
         replace: /\[\/\/\]: contributor-faces(?:(?:\n.*)+\[\/\/\]: contributor-faces)?/,
-        with: `[//]: contributor-faces\n${baton.html}[//]: contributor-faces`
+        with: `[//]: contributor-faces\n${baton.html}\n[//]: contributor-faces`
       }, err => {
         /* istanbul ignore if  */
         if (err) return reject(err)
