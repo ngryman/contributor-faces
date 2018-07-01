@@ -10,6 +10,6 @@ branches:
 notifications:
   email: false
 node_js:
-  - '6'
-  - '5'
+  - 'stable'
+  - 'lts/*'
 after_success: npm run coverage
