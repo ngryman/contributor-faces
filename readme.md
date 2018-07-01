@@ -75,7 +75,9 @@ Then whenever you update your `readme`, the placeholder will get updated like th
 ## Contributors
 
 [//]: contributor-faces
+
 <a href="https://github.com/ngryman"><img src="https://avatars.githubusercontent.com/u/892048?v=3" title="ngryman" width="80" height="80"></a>
+
 [//]: contributor-faces
 
 
