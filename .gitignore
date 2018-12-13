@@ -3,7 +3,6 @@
 .todo
 coverage/
 dist/
-package-lock.json
 
 # node
 node_modules
