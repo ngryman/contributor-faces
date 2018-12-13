@@ -62,3 +62,14 @@ test('throw an error if readme is not present', async t => {
 
   await t.throws(contributors.update(path.dirname(filename)))
 })
+
+test('throw an error if repository is not present', async t => {
+  await t.throws(contributors(path.join('fixtures', 'no-repository')))
+})
+
+test('succeed on repository being an object', async t => {
+  const contribs = await contributors(path.join('fixtures', 'repository-object'))
+
+  t.true(Array.isArray(contribs))
+  t.is(contribs.length, 1)
+})

@@ -3,6 +3,7 @@
 .todo
 coverage/
 dist/
+package-lock.json
 
 # node
 node_modules
@@ -15,3 +16,6 @@ Desktop.ini
 Thumbs.db
 .Spotlight-V100
 .Trashes
+
+# IDE stuff
+.idea

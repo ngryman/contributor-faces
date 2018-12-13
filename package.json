@@ -72,7 +72,7 @@
     "instrument": false
   },
   "dependencies": {
-    "gh-got": "^5.0.0",
+    "gh-got": "^8.0.1",
     "meow": "^3.7.0",
     "micromatch": "^2.3.11",
     "readme-filename": "^1.0.0",

@@ -6,8 +6,12 @@ import mm from 'micromatch'
 
 function getRepo(baton) {
   const pkg = require(path.resolve(baton.dir, 'package.json'))
+  const repo = pkg.repository && (pkg.repository.url || pkg.repository)
 
-  baton.repo = pkg.repository.replace(/https?:\/\/github\.com\//, '')
+  if (!repo) {
+    throw new Error(`${path.join(baton.dir, 'package.json')}: repository is not set.`)
+  }
+  baton.repo = repo.replace(/https?:\/\/[^\/]+\//, '')
   return baton
 }
 
@@ -47,8 +51,8 @@ function update(baton) {
       replace({
         files: path.resolve(baton.dir, filename),
         // eslint-disable-next-line
-        replace: /\[\/\/\]: contributor-faces(?:(?:\n.*)+\[\/\/\]: contributor-faces)?/,
-        with: `[//]: contributor-faces\n${baton.html}\n[//]: contributor-faces`
+        from: /\[\/\/\]: contributor-faces(?:(?:\n.*)+\[\/\/\]: contributor-faces)?/,
+        to: `[//]: contributor-faces\n${baton.html}\n[//]: contributor-faces`
       }, err => {
         /* istanbul ignore if  */
         if (err) return reject(err)
