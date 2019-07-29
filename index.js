@@ -11,7 +11,7 @@ function getRepo(baton) {
   if (!repo) {
     throw new Error(`${path.join(baton.dir, 'package.json')}: repository is not set.`)
   }
-  baton.repo = repo.replace(/https?:\/\/[^\/]+\//, '')
+  baton.repo = repo.replace(/https?:\/\/[^\/]+\//, '').replace('.git', '')
   return baton
 }
 
