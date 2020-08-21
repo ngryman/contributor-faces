@@ -24,13 +24,6 @@ test('accept a limit parameter', async t => {
   t.is(contribs.length, 100)
 })
 
-test.serial('use current directory by default', async t => {
-  process.chdir('fixtures')
-  const contribs = await contributors()
-  t.true(Array.isArray(contribs))
-  process.chdir(__dirname)
-})
-
 test('list contributors as html', async t => {
   const html = await contributors.html('fixtures')
   t.regex(html, /<a href="https:\/\/github.com\/baxterthehacker">/)
