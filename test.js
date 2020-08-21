@@ -23,7 +23,7 @@ test('list contributors as html', async t => {
   t.regex(html, /<img src=".*" title="baxterthehacker" width="80" height="80">/)
 })
 
-test('update a virgin readme', async t => {
+test('update a pristine readme', async t => {
   const filename = path.join('fixtures', 'readme.md')
   const oldReadme = fs.readFileSync(filename, 'utf8')
 
@@ -31,7 +31,9 @@ test('update a virgin readme', async t => {
 
   const readme = fs.readFileSync(filename, 'utf8')
   const expected = fs.readFileSync(
-    filename.replace('.md', '-expected.md'), 'utf8')
+    filename.replace('.md', '-expected.md'),
+    'utf8'
+  )
   t.is(readme, expected)
 
   fs.writeFileSync(filename, oldReadme)
@@ -45,7 +47,9 @@ test('update a readme with an existing contributors list', async t => {
 
   const readme = fs.readFileSync(filename, 'utf8')
   const expected = fs.readFileSync(
-    filename.replace('.md', '-expected.md'), 'utf8')
+    filename.replace('.md', '-expected.md'),
+    'utf8'
+  )
   t.is(readme, expected)
 
   fs.writeFileSync(filename, oldReadme)
@@ -68,7 +72,8 @@ test('throw an error if repository is not present', async t => {
 })
 
 test('succeed on repository being an object', async t => {
-  const contribs = await contributors(path.join('fixtures', 'repository-object'))
+  const repoDir = path.join('fixtures', 'repository-object')
+  const contribs = await contributors(repoDir)
 
   t.true(Array.isArray(contribs))
   t.is(contribs.length, 1)

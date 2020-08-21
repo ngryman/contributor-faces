@@ -1,0 +1,6 @@
+{
+  "extends": "ngryman",
+  "rules": {
+    "space-before-function-paren": 0
+  }
+}

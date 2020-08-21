@@ -4,7 +4,8 @@
 const meow = require('meow')
 const contributors = require('./')
 
-const cli = meow(`
+const cli = meow(
+  `
   Usage
     $ contributor-faces [<directory>]
 
@@ -13,10 +14,12 @@ const cli = meow(`
 
   Examples
     $ contributor-faces --exclude "*-bot"
-`, {
-  alias: {
-    e: 'exclude'
+`,
+  {
+    alias: {
+      e: 'exclude',
+    }
   }
-})
+)
 
 contributors.update(cli.input[0], cli.flags)
