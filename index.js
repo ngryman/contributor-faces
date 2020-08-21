@@ -18,7 +18,11 @@ function getRepo(baton) {
 }
 
 function fetch(baton) {
-  return gh(`repos/${baton.repo}/contributors`).then(res => {
+  const searchParams = {
+    ['per_page']: baton.limit
+  }
+
+  return gh(`repos/${baton.repo}/contributors`, { searchParams }).then(res => {
     baton.contributors = res.body
     return baton
   })
@@ -77,6 +81,7 @@ function end(prop) {
 function core(dir, opts) {
   opts = opts || {}
   opts.dir = dir || '.'
+  opts.limit = opts.limit || 30
   return Promise.resolve(opts).then(getRepo).then(fetch).then(filter)
 }
 

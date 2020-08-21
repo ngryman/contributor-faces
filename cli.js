@@ -11,6 +11,7 @@ const cli = meow(
 
   Options
     --exclude, -e   Exclude contributors, glob.
+    --limit, -l     Limit the number of contributors (default: 30).
 
   Examples
     $ contributor-faces --exclude "*-bot"
@@ -18,6 +19,7 @@ const cli = meow(
   {
     alias: {
       e: 'exclude',
+      l: 'limit'
     }
   }
 )

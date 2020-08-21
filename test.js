@@ -10,6 +10,20 @@ test('list contributors', async t => {
   t.true(Array.isArray(contribs))
 })
 
+test('limit contributors to 30 by default', async t => {
+  const repoDir = path.join('fixtures', 'lots-of-contributors')
+  const contribs = await contributors(repoDir)
+
+  t.is(contribs.length, 30)
+})
+
+test('accept a limit parameter', async t => {
+  const repoDir = path.join('fixtures', 'lots-of-contributors')
+  const contribs = await contributors(repoDir, { limit: 100 })
+
+  t.is(contribs.length, 100)
+})
+
 test.serial('use current directory by default', async t => {
   process.chdir('fixtures')
   const contribs = await contributors()
