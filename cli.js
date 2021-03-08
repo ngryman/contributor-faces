@@ -12,6 +12,7 @@ const cli = meow(
   Options
     --exclude, -e   Exclude contributors, glob.
     --limit, -l     Limit the number of contributors (default: 30).
+    --repo, -r     Repository URL (default: the URL in your package.json).
 
   Examples
     $ contributor-faces --exclude "*-bot"
@@ -19,7 +20,8 @@ const cli = meow(
   {
     alias: {
       e: 'exclude',
-      l: 'limit'
+      l: 'limit',
+      r: 'repository',
     }
   }
 )
