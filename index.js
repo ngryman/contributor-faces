@@ -5,14 +5,18 @@ import replace from 'replace-in-file'
 import mm from 'micromatch'
 
 function getRepo(baton) {
-  const pkg = require(path.resolve(baton.dir, 'package.json'))
-  const repo = pkg.repository && (pkg.repository.url || pkg.repository)
+  var repo = baton.repo
+  if (!repo) {
+    const pkg = require(path.resolve(baton.dir, 'package.json'))
+    repo = pkg.repository && (pkg.repository.url || pkg.repository)
+  }
 
   if (!repo) {
     throw new Error(
       `${path.join(baton.dir, 'package.json')}: repository is not set.`
     )
   }
+
   baton.repo = repo.replace(/https?:\/\/[^\/]+\//, '').replace('.git', '')
   return baton
 }
